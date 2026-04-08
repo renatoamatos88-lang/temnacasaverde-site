@@ -1,0 +1,15 @@
+# Claude Code configs (local only)
+.claude/
+
+# Imagens originais não otimizadas (versões WebP são usadas no site)
+# Adicione aqui PNGs/JPGs originais conforme forem cadastrados negócios:
+# Logo Negocio Exemplo.png
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+*.swp
