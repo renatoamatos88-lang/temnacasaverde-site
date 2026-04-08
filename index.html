@@ -1319,6 +1319,8 @@ tr:hover td { background: rgba(255,255,255,.02); }
 /* ── Ancoragem: compensa nav fixo (~72px) ── */
 #directory, #quem-somos, #vagas, #podcast, #news, #depoimentos, #instagram, #cta { scroll-margin-top: 85px; }
 </style>
+<!-- Tag para injeção de personalização dinâmica (fonte, cores, etc.) -->
+<style id="tnl-custom-style"></style>
 </head>
 <body>
 
@@ -1568,6 +1570,140 @@ tr:hover td { background: rgba(255,255,255,.02); }
             <h4>🦶 Footer</h4>
             <div class="fg"><label>Descrição</label><textarea rows="3" data-pers="footer_desc" oninput="aplicarPersonalizacaoLive(this)" placeholder="O guia definitivo da Casa Verde em São Paulo..."></textarea></div>
             <div class="fg"><label>Copyright</label><input type="text" data-pers="footer_copy" oninput="aplicarPersonalizacaoLive(this)" placeholder="© 2026 Tem na Casa Verde. Feito com 💚 na Casa Verde, SP."></div>
+          </div>
+
+          <div class="adm-cfg-card">
+            <h4>🎨 Cores do site</h4>
+            <p style="font-size:.78rem;color:var(--adm-muted);margin-bottom:1rem">Escolha as cores principais. As mudanças aparecem no site em tempo real.</p>
+            <div class="fg-row">
+              <div class="fg"><label>Fundo escuro (principal)</label><input type="color" data-pers="color_dark" oninput="aplicarPersonalizacaoLive(this)" value="#161A0E" style="width:100%;height:42px;padding:2px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:.4rem;cursor:pointer"></div>
+              <div class="fg"><label>Cor principal (destaque)</label><input type="color" data-pers="color_limao" oninput="aplicarPersonalizacaoLive(this)" value="#C8E04A" style="width:100%;height:42px;padding:2px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:.4rem;cursor:pointer"></div>
+            </div>
+            <div class="fg-row">
+              <div class="fg"><label>Amarelo (acentos)</label><input type="color" data-pers="color_amarelo" oninput="aplicarPersonalizacaoLive(this)" value="#FFC20F" style="width:100%;height:42px;padding:2px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:.4rem;cursor:pointer"></div>
+              <div class="fg"><label>Fundo claro (cream)</label><input type="color" data-pers="color_cream" oninput="aplicarPersonalizacaoLive(this)" value="#F5F2E8" style="width:100%;height:42px;padding:2px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:.4rem;cursor:pointer"></div>
+            </div>
+            <div class="fg-row">
+              <div class="fg"><label>Laranja (accent)</label><input type="color" data-pers="color_accent" oninput="aplicarPersonalizacaoLive(this)" value="#FF5C1A" style="width:100%;height:42px;padding:2px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:.4rem;cursor:pointer"></div>
+              <div class="fg"><label>Verde escuro (limao-dark)</label><input type="color" data-pers="color_limao_dark" oninput="aplicarPersonalizacaoLive(this)" value="#8FB02E" style="width:100%;height:42px;padding:2px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:.4rem;cursor:pointer"></div>
+            </div>
+          </div>
+
+          <div class="adm-cfg-card">
+            <h4>🔤 Fonte</h4>
+            <p style="font-size:.78rem;color:var(--adm-muted);margin-bottom:1rem">Escolha a fonte do site público. O painel admin mantém a fonte original.</p>
+            <div class="fg">
+              <label>Família da fonte</label>
+              <select data-pers="font_family" oninput="aplicarPersonalizacaoLive(this)" style="width:100%;padding:.55rem .7rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:.4rem;color:white;font-size:.85rem">
+                <option value="Plus Jakarta Sans">Plus Jakarta Sans (padrão)</option>
+                <option value="Inter">Inter</option>
+                <option value="Poppins">Poppins</option>
+                <option value="Montserrat">Montserrat</option>
+                <option value="DM Sans">DM Sans</option>
+                <option value="Manrope">Manrope</option>
+                <option value="Work Sans">Work Sans</option>
+                <option value="Raleway">Raleway</option>
+                <option value="Nunito">Nunito</option>
+                <option value="Archivo">Archivo</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="adm-cfg-card">
+            <h4>📋 Títulos das seções</h4>
+            <p style="font-size:.78rem;color:var(--adm-muted);margin-bottom:1rem">Cada seção tem um <strong>rótulo</strong> (pequeno em cima) e um <strong>título</strong> (grande). Use <code style="background:rgba(200,224,74,.1);color:var(--adm-limao);padding:.1rem .4rem;border-radius:.3rem">&lt;em&gt;palavra&lt;/em&gt;</code> no título para destacar em verde.</p>
+            <div class="fg-row">
+              <div class="fg"><label>Negócios — rótulo</label><input type="text" data-pers="sec_neg_lbl" oninput="aplicarPersonalizacaoLive(this)" placeholder="Diretório"></div>
+              <div class="fg"><label>Negócios — título</label><input type="text" data-pers="sec_neg_title" oninput="aplicarPersonalizacaoLive(this)" placeholder="Negócios da <em>Casa Verde</em>"></div>
+            </div>
+            <div class="fg-row">
+              <div class="fg"><label>Quem Somos — rótulo</label><input type="text" data-pers="sec_qs_lbl" oninput="aplicarPersonalizacaoLive(this)" placeholder="Nossa história"></div>
+              <div class="fg"><label>Quem Somos — título</label><input type="text" data-pers="sec_qs_title" oninput="aplicarPersonalizacaoLive(this)" placeholder="Quem <em>somos</em>"></div>
+            </div>
+            <div class="fg-row">
+              <div class="fg"><label>Podcast — rótulo</label><input type="text" data-pers="sec_pod_lbl" oninput="aplicarPersonalizacaoLive(this)" placeholder="Áudio & Vídeo"></div>
+              <div class="fg"><label>Podcast — título</label><input type="text" data-pers="sec_pod_title" oninput="aplicarPersonalizacaoLive(this)" placeholder="Podcast da <em>Casa Verde</em>"></div>
+            </div>
+            <div class="fg-row">
+              <div class="fg"><label>Notícias — rótulo</label><input type="text" data-pers="sec_news_lbl" oninput="aplicarPersonalizacaoLive(this)" placeholder="Jornalismo Local"></div>
+              <div class="fg"><label>Notícias — título</label><input type="text" data-pers="sec_news_title" oninput="aplicarPersonalizacaoLive(this)" placeholder="O que rola no <em>bairro</em>"></div>
+            </div>
+            <div class="fg-row">
+              <div class="fg"><label>Depoimentos — rótulo</label><input type="text" data-pers="sec_dep_lbl" oninput="aplicarPersonalizacaoLive(this)" placeholder="Comunidade"></div>
+              <div class="fg"><label>Depoimentos — título</label><input type="text" data-pers="sec_dep_title" oninput="aplicarPersonalizacaoLive(this)" placeholder="O que o <em>bairro</em> diz"></div>
+            </div>
+            <div class="fg-row">
+              <div class="fg"><label>Vagas — rótulo</label><input type="text" data-pers="sec_vag_lbl" oninput="aplicarPersonalizacaoLive(this)" placeholder="Oportunidades"></div>
+              <div class="fg"><label>Vagas — título</label><input type="text" data-pers="sec_vag_title" oninput="aplicarPersonalizacaoLive(this)" placeholder="Vagas de <em>Emprego</em>"></div>
+            </div>
+          </div>
+
+          <div class="adm-cfg-card">
+            <h4>👁 Visibilidade das seções</h4>
+            <p style="font-size:.78rem;color:var(--adm-muted);margin-bottom:1rem">Ative ou desative seções inteiras do site público.</p>
+            <div style="display:flex;flex-direction:column;gap:.65rem">
+              <label style="display:flex;align-items:center;justify-content:space-between;gap:1rem;cursor:pointer">
+                <span style="font-size:.88rem;color:var(--adm-text)">🏪 Negócios</span>
+                <input type="checkbox" data-pers="sec_show_neg" oninput="aplicarPersonalizacaoLive(this)" checked style="width:18px;height:18px;accent-color:var(--adm-limao);cursor:pointer">
+              </label>
+              <label style="display:flex;align-items:center;justify-content:space-between;gap:1rem;cursor:pointer">
+                <span style="font-size:.88rem;color:var(--adm-text)">👥 Quem Somos</span>
+                <input type="checkbox" data-pers="sec_show_qs" oninput="aplicarPersonalizacaoLive(this)" checked style="width:18px;height:18px;accent-color:var(--adm-limao);cursor:pointer">
+              </label>
+              <label style="display:flex;align-items:center;justify-content:space-between;gap:1rem;cursor:pointer">
+                <span style="font-size:.88rem;color:var(--adm-text)">💬 Depoimentos</span>
+                <input type="checkbox" data-pers="sec_show_dep" oninput="aplicarPersonalizacaoLive(this)" checked style="width:18px;height:18px;accent-color:var(--adm-limao);cursor:pointer">
+              </label>
+              <label style="display:flex;align-items:center;justify-content:space-between;gap:1rem;cursor:pointer">
+                <span style="font-size:.88rem;color:var(--adm-text)">📸 Instagram</span>
+                <input type="checkbox" data-pers="sec_show_ig" oninput="aplicarPersonalizacaoLive(this)" checked style="width:18px;height:18px;accent-color:var(--adm-limao);cursor:pointer">
+              </label>
+              <label style="display:flex;align-items:center;justify-content:space-between;gap:1rem;cursor:pointer">
+                <span style="font-size:.88rem;color:var(--adm-text)">📣 CTA final (cadastro)</span>
+                <input type="checkbox" data-pers="sec_show_cta" oninput="aplicarPersonalizacaoLive(this)" checked style="width:18px;height:18px;accent-color:var(--adm-limao);cursor:pointer">
+              </label>
+            </div>
+            <p style="font-size:.72rem;color:var(--adm-muted);margin-top:1rem">Dica: para esconder Podcast, Notícias e Vagas, use a aba <strong>Configurações → Seções do site</strong>.</p>
+          </div>
+
+          <div class="adm-cfg-card">
+            <h4>🎯 Botões do Hero — Slide A (Bairro)</h4>
+            <div class="fg-row">
+              <div class="fg"><label>Botão primário — texto</label><input type="text" data-pers="btn_a_primary_txt" oninput="aplicarPersonalizacaoLive(this)" placeholder="Cadastre seu negócio"></div>
+              <div class="fg"><label>Botão primário — link</label><input type="text" data-pers="btn_a_primary_url" oninput="aplicarPersonalizacaoLive(this)" placeholder="https://wa.me/..."></div>
+            </div>
+            <div class="fg-row">
+              <div class="fg"><label>Botão secundário — texto</label><input type="text" data-pers="btn_a_secondary_txt" oninput="aplicarPersonalizacaoLive(this)" placeholder="Quero meu site"></div>
+              <div class="fg"><label>Botão secundário — link</label><input type="text" data-pers="btn_a_secondary_url" oninput="aplicarPersonalizacaoLive(this)" placeholder="https://wa.me/..."></div>
+            </div>
+          </div>
+
+          <div class="adm-cfg-card">
+            <h4>🎯 Botões do Hero — Slide B (Instagram)</h4>
+            <div class="fg-row">
+              <div class="fg"><label>Botão seguir — texto</label><input type="text" data-pers="btn_b_follow_txt" oninput="aplicarPersonalizacaoLive(this)" placeholder="Seguir no Instagram"></div>
+              <div class="fg"><label>Botão seguir — link</label><input type="text" data-pers="btn_b_follow_url" oninput="aplicarPersonalizacaoLive(this)" placeholder="https://instagram.com/..."></div>
+            </div>
+            <div class="fg-row">
+              <div class="fg"><label>Botão WhatsApp — texto</label><input type="text" data-pers="btn_b_wpp_txt" oninput="aplicarPersonalizacaoLive(this)" placeholder="Falar no WhatsApp"></div>
+              <div class="fg"><label>Botão WhatsApp — link</label><input type="text" data-pers="btn_b_wpp_url" oninput="aplicarPersonalizacaoLive(this)" placeholder="https://wa.me/..."></div>
+            </div>
+          </div>
+
+          <div class="adm-cfg-card">
+            <h4>🔝 Header — Botão "Cadastre seu negócio"</h4>
+            <div class="fg-row">
+              <div class="fg"><label>Texto do botão</label><input type="text" data-pers="btn_nav_txt" oninput="aplicarPersonalizacaoLive(this)" placeholder="Cadastre seu negócio"></div>
+              <div class="fg"><label>Link do botão</label><input type="text" data-pers="btn_nav_url" oninput="aplicarPersonalizacaoLive(this)" placeholder="https://wa.me/..."></div>
+            </div>
+          </div>
+
+          <div class="adm-cfg-card">
+            <h4>📣 CTA Final — Botão</h4>
+            <div class="fg-row">
+              <div class="fg"><label>Texto do botão</label><input type="text" data-pers="btn_cta_txt" oninput="aplicarPersonalizacaoLive(this)" placeholder="Cadastre seu negócio"></div>
+              <div class="fg"><label>Link do botão</label><input type="text" data-pers="btn_cta_url" oninput="aplicarPersonalizacaoLive(this)" placeholder="https://wa.me/..."></div>
+            </div>
           </div>
 
           <div style="margin-top:1.5rem;display:flex;gap:.75rem;flex-wrap:wrap">
@@ -2530,10 +2666,23 @@ const PERS_REGISTRY = {
   qs_lead:   { sel: '.tnl-qs-lead', prop: 'text' },
   qs_body:   { sel: '.tnl-qs-body', prop: 'text' },
   // CTA
-  cta_title: { sel: '.tnl-cta-title', prop: 'text' },
+  cta_title: { sel: '.tnl-cta-title', prop: 'html' },
   // Footer
   footer_desc: { sel: '.tnl-footer-desc', prop: 'text' },
   footer_copy: { sel: '.tnl-footer-copy', prop: 'text' },
+  // Section titles (rótulo pequeno + título grande) — usam HTML para permitir <em>
+  sec_neg_lbl:    { sel: '#directory .tnl-section-label',  prop: 'text' },
+  sec_neg_title:  { sel: '#directory .tnl-section-title',  prop: 'html' },
+  sec_qs_lbl:     { sel: '#quem-somos .tnl-section-label', prop: 'text' },
+  sec_qs_title:   { sel: '#quem-somos .tnl-section-title', prop: 'html' },
+  sec_pod_lbl:    { sel: '#podcast .tnl-section-label',    prop: 'text' },
+  sec_pod_title:  { sel: '#podcast .tnl-section-title',    prop: 'html' },
+  sec_news_lbl:   { sel: '#news .tnl-section-label',       prop: 'text' },
+  sec_news_title: { sel: '#news .tnl-section-title',       prop: 'html' },
+  sec_dep_lbl:    { sel: '.tnl-depoimentos .tnl-section-label', prop: 'text' },
+  sec_dep_title:  { sel: '.tnl-depoimentos .tnl-section-title', prop: 'html' },
+  sec_vag_lbl:    { sel: '#vagas .tnl-section-label',      prop: 'text' },
+  sec_vag_title:  { sel: '#vagas .tnl-section-title',      prop: 'html' },
 };
 
 // Lê os defaults do DOM (executado na primeira carga, antes de qualquer aplicação)
@@ -2543,12 +2692,75 @@ function carregarPersDefaults() {
   PERS_DEFAULTS = {};
   for (const k of Object.keys(PERS_REGISTRY)) {
     const el = _persGetEl(k);
-    if (el) PERS_DEFAULTS[k] = el.textContent.trim();
+    if (!el) continue;
+    const def = PERS_REGISTRY[k];
+    PERS_DEFAULTS[k] = def.prop === 'html' ? el.innerHTML.trim() : el.textContent.trim();
   }
   // Defaults para o carrossel
   PERS_DEFAULTS.hero_mode = 'both';
   PERS_DEFAULTS.hero_time = '8';
+  // Defaults para cores (lidos do CSS :root)
+  const rootStyle = getComputedStyle(document.documentElement);
+  PERS_DEFAULTS.color_dark       = (rootStyle.getPropertyValue('--dark')        || '#161A0E').trim();
+  PERS_DEFAULTS.color_limao      = (rootStyle.getPropertyValue('--limao')       || '#C8E04A').trim();
+  PERS_DEFAULTS.color_amarelo    = (rootStyle.getPropertyValue('--amarelo')     || '#FFC20F').trim();
+  PERS_DEFAULTS.color_cream      = (rootStyle.getPropertyValue('--cream')       || '#F5F2E8').trim();
+  PERS_DEFAULTS.color_accent     = (rootStyle.getPropertyValue('--accent')      || '#FF5C1A').trim();
+  PERS_DEFAULTS.color_limao_dark = (rootStyle.getPropertyValue('--limao-dark')  || '#8FB02E').trim();
+  // Fonte padrão
+  PERS_DEFAULTS.font_family = 'Plus Jakarta Sans';
+  // Defaults para visibilidade
+  PERS_DEFAULTS.sec_show_neg = true;
+  PERS_DEFAULTS.sec_show_qs  = true;
+  PERS_DEFAULTS.sec_show_dep = true;
+  PERS_DEFAULTS.sec_show_ig  = true;
+  PERS_DEFAULTS.sec_show_cta = true;
+  // Defaults para botões (capturados da DOM atual)
+  PERS_DEFAULTS.btn_a_primary_txt   = _btnGetText('.tnl-hero-slide-a .tnl-btn-primary');
+  PERS_DEFAULTS.btn_a_primary_url   = _btnGetHref('.tnl-hero-slide-a .tnl-btn-primary');
+  PERS_DEFAULTS.btn_a_secondary_txt = _btnGetText('.tnl-hero-slide-a .tnl-btn-secondary');
+  PERS_DEFAULTS.btn_a_secondary_url = _btnGetHref('.tnl-hero-slide-a .tnl-btn-secondary');
+  PERS_DEFAULTS.btn_b_follow_txt    = _btnGetText('.tnl-hero-slide-b .tnl-btn-ig-follow');
+  PERS_DEFAULTS.btn_b_follow_url    = _btnGetHref('.tnl-hero-slide-b .tnl-btn-ig-follow');
+  PERS_DEFAULTS.btn_b_wpp_txt       = _btnGetText('.tnl-hero-slide-b .tnl-btn-ig-wpp');
+  PERS_DEFAULTS.btn_b_wpp_url       = _btnGetHref('.tnl-hero-slide-b .tnl-btn-ig-wpp');
+  PERS_DEFAULTS.btn_nav_txt         = _btnGetText('.tnl-nav-cta');
+  PERS_DEFAULTS.btn_nav_url         = _btnGetHref('.tnl-nav-cta');
+  PERS_DEFAULTS.btn_cta_txt         = _btnGetText('.tnl-cta-banner a.tnl-btn-dark');
+  PERS_DEFAULTS.btn_cta_url         = _btnGetHref('.tnl-cta-banner a.tnl-btn-dark');
   return PERS_DEFAULTS;
+}
+
+// Helpers para lidar com texto + href de botões que contêm SVG + texto
+function _btnGetText(sel) {
+  const el = document.querySelector(sel);
+  if (!el) return '';
+  // Procura o último text node com conteúdo
+  let txt = '';
+  el.childNodes.forEach(n => {
+    if (n.nodeType === Node.TEXT_NODE && n.textContent.trim()) txt = n.textContent.trim();
+  });
+  return txt;
+}
+function _btnGetHref(sel) {
+  const el = document.querySelector(sel);
+  return el ? (el.getAttribute('href') || '') : '';
+}
+function _btnSetText(sel, text) {
+  document.querySelectorAll(sel).forEach(el => {
+    let lastText = null;
+    el.childNodes.forEach(n => {
+      if (n.nodeType === Node.TEXT_NODE && n.textContent.trim()) lastText = n;
+    });
+    if (lastText) {
+      lastText.textContent = lastText.textContent.replace(lastText.textContent.trim(), text);
+    } else {
+      el.appendChild(document.createTextNode(' ' + text));
+    }
+  });
+}
+function _btnSetHref(sel, url) {
+  document.querySelectorAll(sel).forEach(el => el.setAttribute('href', url));
 }
 
 function _persGetEl(key) {
@@ -2564,21 +2776,107 @@ function _persGetEl(key) {
 
 function aplicarPersonalizacao(pers) {
   carregarPersDefaults();
-  // Aplica cada campo do registry
+  pers = pers || {};
+  // Aplica cada campo do registry (textos + HTML)
   for (const k of Object.keys(PERS_REGISTRY)) {
     const el = _persGetEl(k);
     if (!el) continue;
-    const val = (pers && pers[k] != null && pers[k] !== '') ? pers[k] : PERS_DEFAULTS[k];
-    if (val != null) el.textContent = val;
+    const def = PERS_REGISTRY[k];
+    const val = (pers[k] != null && pers[k] !== '') ? pers[k] : PERS_DEFAULTS[k];
+    if (val != null) {
+      if (def.prop === 'html') el.innerHTML = val;
+      else el.textContent = val;
+    }
   }
   // Restaura campos do formulário ADM
   document.querySelectorAll('[data-pers]').forEach(input => {
     const k = input.getAttribute('data-pers');
-    const val = (pers && pers[k] != null) ? pers[k] : (PERS_DEFAULTS[k] || '');
-    input.value = val;
+    const val = (pers[k] != null) ? pers[k] : (PERS_DEFAULTS[k] != null ? PERS_DEFAULTS[k] : '');
+    if (input.type === 'checkbox') {
+      input.checked = (val === true || val === 'true');
+    } else {
+      input.value = val;
+    }
   });
-  // Carrossel — modo e tempo
-  _aplicarCarrossel(pers || {});
+  // Carrossel, cores, fonte, visibilidade extra, botões
+  _aplicarCarrossel(pers);
+  _aplicarCores(pers);
+  _aplicarFonte(pers.font_family || PERS_DEFAULTS.font_family);
+  _aplicarVisibilidadeExtra(pers);
+  _aplicarBotoes(pers);
+}
+
+function _aplicarCores(pers) {
+  const root = document.documentElement;
+  const map = {
+    color_dark:       '--dark',
+    color_limao:      '--limao',
+    color_amarelo:    '--amarelo',
+    color_cream:      '--cream',
+    color_accent:     '--accent',
+    color_limao_dark: '--limao-dark',
+  };
+  for (const [persKey, cssVar] of Object.entries(map)) {
+    const val = pers[persKey] || PERS_DEFAULTS[persKey];
+    if (val) root.style.setProperty(cssVar, val);
+  }
+}
+
+function _aplicarFonte(fontName) {
+  if (!fontName) fontName = 'Plus Jakarta Sans';
+  // Carrega o Google Font dinamicamente (só se ainda não estiver carregado)
+  const linkId = 'google-font-custom-' + fontName.replace(/\s+/g, '-');
+  if (!document.getElementById(linkId)) {
+    const link = document.createElement('link');
+    link.id = linkId;
+    link.rel = 'stylesheet';
+    const safeName = fontName.replace(/ /g, '+');
+    link.href = 'https://fonts.googleapis.com/css2?family=' + safeName + ':ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&display=swap';
+    document.head.appendChild(link);
+  }
+  // Injeta CSS que sobrescreve font-family em tudo do site público (exceto admin)
+  const style = document.getElementById('tnl-custom-style');
+  if (style) {
+    style.textContent = `
+      body > *:not(#admin-overlay):not(#modal-bg),
+      body > *:not(#admin-overlay):not(#modal-bg) *:not(code):not(pre):not(script):not(style) {
+        font-family: '${fontName}', 'Plus Jakarta Sans', sans-serif !important;
+      }
+    `;
+  }
+}
+
+function _aplicarVisibilidadeExtra(pers) {
+  const map = {
+    sec_show_neg: '#directory',
+    sec_show_qs:  '#quem-somos',
+    sec_show_dep: '.tnl-depoimentos',
+    sec_show_ig:  '#instagram',
+    sec_show_cta: '.tnl-cta-banner',
+  };
+  for (const [k, sel] of Object.entries(map)) {
+    const el = document.querySelector(sel);
+    if (!el) continue;
+    const visible = pers[k] != null ? (pers[k] === true || pers[k] === 'true') : true;
+    el.style.display = visible ? '' : 'none';
+  }
+}
+
+function _aplicarBotoes(pers) {
+  const btns = [
+    { txt: 'btn_a_primary_txt',   url: 'btn_a_primary_url',   sel: '.tnl-hero-slide-a .tnl-btn-primary' },
+    { txt: 'btn_a_secondary_txt', url: 'btn_a_secondary_url', sel: '.tnl-hero-slide-a .tnl-btn-secondary' },
+    { txt: 'btn_b_follow_txt',    url: 'btn_b_follow_url',    sel: '.tnl-hero-slide-b .tnl-btn-ig-follow' },
+    { txt: 'btn_b_wpp_txt',       url: 'btn_b_wpp_url',       sel: '.tnl-hero-slide-b .tnl-btn-ig-wpp' },
+    { txt: 'btn_nav_txt',         url: 'btn_nav_url',         sel: '.tnl-nav-cta, .tnl-mob-cta' },
+    { txt: 'btn_cta_txt',         url: 'btn_cta_url',         sel: '.tnl-cta-banner a.tnl-btn-dark' },
+  ];
+  for (const b of btns) {
+    const txt = pers[b.txt] != null && pers[b.txt] !== '' ? pers[b.txt] : PERS_DEFAULTS[b.txt];
+    const url = pers[b.url] != null && pers[b.url] !== '' ? pers[b.url] : PERS_DEFAULTS[b.url];
+    if (txt) _btnSetText(b.sel, txt);
+    if (url) _btnSetHref(b.sel, url);
+  }
 }
 
 function _aplicarCarrossel(pers) {
@@ -2611,12 +2909,39 @@ function aplicarPersonalizacaoLive(input) {
   // Live preview enquanto o usuário digita: aplica direto sem salvar
   const k = input.getAttribute('data-pers');
   if (!k) return;
-  // Casos especiais (carrossel)
+  // Casos especiais
   if (k === 'hero_mode' || k === 'hero_time') {
-    const pers = lerPersForm();
-    _aplicarCarrossel(pers);
+    _aplicarCarrossel(lerPersForm());
     return;
   }
+  if (k.startsWith('color_')) {
+    _aplicarCores(lerPersForm());
+    return;
+  }
+  if (k === 'font_family') {
+    _aplicarFonte(input.value);
+    return;
+  }
+  if (k.startsWith('sec_show_')) {
+    _aplicarVisibilidadeExtra(lerPersForm());
+    return;
+  }
+  if (k.startsWith('btn_')) {
+    _aplicarBotoes(lerPersForm());
+    return;
+  }
+  // Campos do registry (textos e HTML)
+  const def = PERS_REGISTRY[k];
+  if (def) {
+    const el = _persGetEl(k);
+    if (el) {
+      const val = input.value || PERS_DEFAULTS[k] || '';
+      if (def.prop === 'html') el.innerHTML = val;
+      else el.textContent = val;
+    }
+    return;
+  }
+  // Fallback
   const el = _persGetEl(k);
   if (el) el.textContent = input.value || PERS_DEFAULTS[k] || '';
 }
@@ -2624,7 +2949,12 @@ function aplicarPersonalizacaoLive(input) {
 function lerPersForm() {
   const pers = {};
   document.querySelectorAll('[data-pers]').forEach(input => {
-    pers[input.getAttribute('data-pers')] = input.value;
+    const k = input.getAttribute('data-pers');
+    if (input.type === 'checkbox') {
+      pers[k] = input.checked;
+    } else {
+      pers[k] = input.value;
+    }
   });
   return pers;
 }
