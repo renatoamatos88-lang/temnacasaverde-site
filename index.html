@@ -1362,6 +1362,7 @@ tr:hover td { background: rgba(255,255,255,.02); }
         <button class="adm-nav-link" data-sec="deps" onclick="admNav(this,'deps')">💬 Depoimentos</button>
         <button class="adm-nav-link" data-sec="ig" onclick="admNav(this,'ig')">📸 Instagram</button>
         <div class="adm-nav-lbl">Config</div>
+        <button class="adm-nav-link" data-sec="pers" onclick="admNav(this,'pers')">🎨 Personalização</button>
         <button class="adm-nav-link" data-sec="cfg" onclick="admNav(this,'cfg')">⚙️ Configurações</button>
         <div class="adm-sidebar-bottom">
           <button class="adm-back-btn" onclick="admBack()">← Voltar ao site</button>
@@ -1499,6 +1500,79 @@ tr:hover td { background: rgba(255,255,255,.02); }
             <p style="font-size:.78rem;color:var(--adm-muted);margin-bottom:1rem">Cole a URL de cada reel do Instagram (ex: <code style="background:rgba(200,224,74,.1);color:var(--adm-limao);padding:.1rem .4rem;border-radius:.3rem">https://www.instagram.com/reel/ABC123/</code>)</p>
             <div id="ig-reels-list"></div>
             <button class="adm-add-btn" onclick="addReel()" style="margin-top:.75rem">+ Adicionar Reel</button>
+          </div>
+        </div>
+
+        <!-- PERSONALIZAÇÃO -->
+        <div class="adm-sec" id="adm-pers">
+          <div class="adm-sec-title">Personalização</div>
+          <div class="adm-sec-sub">Edite textos, números e comportamento do site sem mexer no código. As mudanças são aplicadas em tempo real.</div>
+
+          <div class="adm-cfg-card">
+            <h4>🌅 Hero — Slide A (Bairro)</h4>
+            <div class="fg"><label>Eyebrow (rótulo acima do título)</label><input type="text" data-pers="a_eyebrow" oninput="aplicarPersonalizacaoLive(this)" placeholder="Casa Verde · São Paulo"></div>
+            <div class="fg"><label>Subtítulo</label><textarea rows="2" data-pers="a_sub" oninput="aplicarPersonalizacaoLive(this)" placeholder="O guia definitivo dos negócios..."></textarea></div>
+            <div class="fg-row">
+              <div class="fg"><label>Stat 1 — número</label><input type="text" data-pers="a_s1n" oninput="aplicarPersonalizacaoLive(this)" placeholder="1"></div>
+              <div class="fg"><label>Stat 1 — rótulo</label><input type="text" data-pers="a_s1l" oninput="aplicarPersonalizacaoLive(this)" placeholder="Bairro"></div>
+            </div>
+            <div class="fg-row">
+              <div class="fg"><label>Stat 2 — número</label><input type="text" data-pers="a_s2n" oninput="aplicarPersonalizacaoLive(this)" placeholder="107K"></div>
+              <div class="fg"><label>Stat 2 — rótulo</label><input type="text" data-pers="a_s2l" oninput="aplicarPersonalizacaoLive(this)" placeholder="Moradores"></div>
+            </div>
+          </div>
+
+          <div class="adm-cfg-card">
+            <h4>📸 Hero — Slide B (Instagram)</h4>
+            <div class="fg"><label>Eyebrow</label><input type="text" data-pers="b_eyebrow" oninput="aplicarPersonalizacaoLive(this)" placeholder="@temnacasaverde · Instagram"></div>
+            <div class="fg"><label>Subtítulo</label><textarea rows="2" data-pers="b_sub" oninput="aplicarPersonalizacaoLive(this)" placeholder="O seu canal de jornalismo comunitário..."></textarea></div>
+            <div class="fg-row">
+              <div class="fg"><label>Stat 1 — número</label><input type="text" data-pers="b_s1n" oninput="aplicarPersonalizacaoLive(this)" placeholder="0"></div>
+              <div class="fg"><label>Stat 1 — rótulo</label><input type="text" data-pers="b_s1l" oninput="aplicarPersonalizacaoLive(this)" placeholder="Seguidores"></div>
+            </div>
+            <div class="fg-row">
+              <div class="fg"><label>Stat 2 — número</label><input type="text" data-pers="b_s2n" oninput="aplicarPersonalizacaoLive(this)" placeholder="0"></div>
+              <div class="fg"><label>Stat 2 — rótulo</label><input type="text" data-pers="b_s2l" oninput="aplicarPersonalizacaoLive(this)" placeholder="Views/mês"></div>
+            </div>
+            <div class="fg-row">
+              <div class="fg"><label>Stat 3 — número</label><input type="text" data-pers="b_s3n" oninput="aplicarPersonalizacaoLive(this)" placeholder="0"></div>
+              <div class="fg"><label>Stat 3 — rótulo</label><input type="text" data-pers="b_s3l" oninput="aplicarPersonalizacaoLive(this)" placeholder="Interações"></div>
+            </div>
+          </div>
+
+          <div class="adm-cfg-card">
+            <h4>🎠 Carrossel do hero</h4>
+            <div class="fg">
+              <label>Modo de exibição</label>
+              <select data-pers="hero_mode" oninput="aplicarPersonalizacaoLive(this)" style="width:100%;padding:.55rem .7rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:.4rem;color:white;font-size:.85rem">
+                <option value="both">Ambos os slides (carrossel)</option>
+                <option value="a">Apenas Slide A (Bairro)</option>
+                <option value="b">Apenas Slide B (Instagram)</option>
+              </select>
+            </div>
+            <div class="fg"><label>Tempo entre slides (segundos)</label><input type="number" min="2" max="30" data-pers="hero_time" oninput="aplicarPersonalizacaoLive(this)" placeholder="8"></div>
+          </div>
+
+          <div class="adm-cfg-card">
+            <h4>👥 Quem Somos</h4>
+            <div class="fg"><label>Texto destacado (lead)</label><textarea rows="3" data-pers="qs_lead" oninput="aplicarPersonalizacaoLive(this)" placeholder="O Tem na Casa Verde nasceu de uma pergunta simples..."></textarea></div>
+            <div class="fg"><label>Texto principal (body)</label><textarea rows="4" data-pers="qs_body" oninput="aplicarPersonalizacaoLive(this)" placeholder="Conhecer e divulgar os comércios..."></textarea></div>
+          </div>
+
+          <div class="adm-cfg-card">
+            <h4>📣 CTA Final ("Seu negócio merece estar no mapa")</h4>
+            <div class="fg"><label>Título do CTA</label><textarea rows="2" data-pers="cta_title" oninput="aplicarPersonalizacaoLive(this)" placeholder="Seu negócio merece estar no mapa da Casa Verde"></textarea></div>
+          </div>
+
+          <div class="adm-cfg-card">
+            <h4>🦶 Footer</h4>
+            <div class="fg"><label>Descrição</label><textarea rows="3" data-pers="footer_desc" oninput="aplicarPersonalizacaoLive(this)" placeholder="O guia definitivo da Casa Verde em São Paulo..."></textarea></div>
+            <div class="fg"><label>Copyright</label><input type="text" data-pers="footer_copy" oninput="aplicarPersonalizacaoLive(this)" placeholder="© 2026 Tem na Casa Verde. Feito com 💚 na Casa Verde, SP."></div>
+          </div>
+
+          <div style="margin-top:1.5rem;display:flex;gap:.75rem;flex-wrap:wrap">
+            <button class="modal-save" onclick="salvarPersonalizacao()">💾 Salvar personalização</button>
+            <button onclick="resetarPersonalizacao()" style="padding:.6rem 1.25rem;background:rgba(255,255,255,.08);color:var(--adm-text);border:none;border-radius:.5rem;font-weight:700;font-size:.82rem;cursor:pointer">↻ Restaurar valores padrão</button>
           </div>
         </div>
 
@@ -2425,6 +2499,190 @@ function aplicarConfig(cfg) {
 
   // Atualiza links de nav (desktop + mobile) para podcast e notícias
   _aplicarNavLinks(cfg);
+
+  // Aplica personalização (textos do hero, quem somos, CTA, footer, carrossel)
+  aplicarPersonalizacao(cfg.pers || {});
+
+  // Aplica contato em links reais do site (WhatsApp, IG, TikTok, YouTube, e-mail)
+  aplicarContatoNosLinks(cfg);
+}
+
+// ── PERSONALIZAÇÃO — registry de campos editáveis ────────────────────
+// Cada item: { sel: seletor CSS, idx: índice (se múltiplos), prop: 'text'|'html'|'attr', attr: nome do atributo se prop='attr' }
+const PERS_REGISTRY = {
+  // Slide A
+  a_eyebrow: { sel: '.tnl-hero-slide-a .tnl-hero-eyebrow', prop: 'text' },
+  a_sub:     { sel: '.tnl-hero-slide-a .tnl-hero-subtitle', prop: 'text' },
+  a_s1n:     { sel: '.tnl-hero-slide-a .tnl-hero-stats .tnl-hero-stat', idx: 0, child: '.tnl-hero-stat-number', prop: 'text' },
+  a_s1l:     { sel: '.tnl-hero-slide-a .tnl-hero-stats .tnl-hero-stat', idx: 0, child: '.tnl-hero-stat-label',  prop: 'text' },
+  a_s2n:     { sel: '.tnl-hero-slide-a .tnl-hero-stats .tnl-hero-stat', idx: 1, child: '.tnl-hero-stat-number', prop: 'text' },
+  a_s2l:     { sel: '.tnl-hero-slide-a .tnl-hero-stats .tnl-hero-stat', idx: 1, child: '.tnl-hero-stat-label',  prop: 'text' },
+  // Slide B
+  b_eyebrow: { sel: '.tnl-hero-slide-b .tnl-hero-eyebrow', prop: 'text' },
+  b_sub:     { sel: '.tnl-hero-slide-b .tnl-hero-subtitle', prop: 'text' },
+  b_s1n:     { sel: '.tnl-hero-slide-b .tnl-ig-stats .tnl-hero-stat', idx: 0, child: '.tnl-hero-stat-number', prop: 'text' },
+  b_s1l:     { sel: '.tnl-hero-slide-b .tnl-ig-stats .tnl-hero-stat', idx: 0, child: '.tnl-hero-stat-label',  prop: 'text' },
+  b_s2n:     { sel: '.tnl-hero-slide-b .tnl-ig-stats .tnl-hero-stat', idx: 1, child: '.tnl-hero-stat-number', prop: 'text' },
+  b_s2l:     { sel: '.tnl-hero-slide-b .tnl-ig-stats .tnl-hero-stat', idx: 1, child: '.tnl-hero-stat-label',  prop: 'text' },
+  b_s3n:     { sel: '.tnl-hero-slide-b .tnl-ig-stats .tnl-hero-stat', idx: 2, child: '.tnl-hero-stat-number', prop: 'text' },
+  b_s3l:     { sel: '.tnl-hero-slide-b .tnl-ig-stats .tnl-hero-stat', idx: 2, child: '.tnl-hero-stat-label',  prop: 'text' },
+  // Quem Somos
+  qs_lead:   { sel: '.tnl-qs-lead', prop: 'text' },
+  qs_body:   { sel: '.tnl-qs-body', prop: 'text' },
+  // CTA
+  cta_title: { sel: '.tnl-cta-title', prop: 'text' },
+  // Footer
+  footer_desc: { sel: '.tnl-footer-desc', prop: 'text' },
+  footer_copy: { sel: '.tnl-footer-copy', prop: 'text' },
+};
+
+// Lê os defaults do DOM (executado na primeira carga, antes de qualquer aplicação)
+let PERS_DEFAULTS = null;
+function carregarPersDefaults() {
+  if (PERS_DEFAULTS) return PERS_DEFAULTS;
+  PERS_DEFAULTS = {};
+  for (const k of Object.keys(PERS_REGISTRY)) {
+    const el = _persGetEl(k);
+    if (el) PERS_DEFAULTS[k] = el.textContent.trim();
+  }
+  // Defaults para o carrossel
+  PERS_DEFAULTS.hero_mode = 'both';
+  PERS_DEFAULTS.hero_time = '8';
+  return PERS_DEFAULTS;
+}
+
+function _persGetEl(key) {
+  const def = PERS_REGISTRY[key];
+  if (!def) return null;
+  const els = document.querySelectorAll(def.sel);
+  if (!els.length) return null;
+  let el = def.idx != null ? els[def.idx] : els[0];
+  if (!el) return null;
+  if (def.child) el = el.querySelector(def.child);
+  return el;
+}
+
+function aplicarPersonalizacao(pers) {
+  carregarPersDefaults();
+  // Aplica cada campo do registry
+  for (const k of Object.keys(PERS_REGISTRY)) {
+    const el = _persGetEl(k);
+    if (!el) continue;
+    const val = (pers && pers[k] != null && pers[k] !== '') ? pers[k] : PERS_DEFAULTS[k];
+    if (val != null) el.textContent = val;
+  }
+  // Restaura campos do formulário ADM
+  document.querySelectorAll('[data-pers]').forEach(input => {
+    const k = input.getAttribute('data-pers');
+    const val = (pers && pers[k] != null) ? pers[k] : (PERS_DEFAULTS[k] || '');
+    input.value = val;
+  });
+  // Carrossel — modo e tempo
+  _aplicarCarrossel(pers || {});
+}
+
+function _aplicarCarrossel(pers) {
+  const mode = pers.hero_mode || 'both';
+  const slides = document.querySelectorAll('.tnl-hero-slide');
+  const dots = document.querySelectorAll('.tnl-hero-dot');
+  if (mode === 'a') {
+    if (slides[0]) { slides[0].style.display = ''; slides[0].classList.add('active'); }
+    if (slides[1]) { slides[1].style.display = 'none'; slides[1].classList.remove('active'); }
+    dots.forEach(d => d.style.display = 'none');
+    window._heroCarrosselDisabled = true;
+  } else if (mode === 'b') {
+    if (slides[0]) { slides[0].style.display = 'none'; slides[0].classList.remove('active'); }
+    if (slides[1]) { slides[1].style.display = ''; slides[1].classList.add('active'); }
+    dots.forEach(d => d.style.display = 'none');
+    window._heroCarrosselDisabled = true;
+  } else {
+    slides.forEach(s => s.style.display = '');
+    dots.forEach(d => d.style.display = '');
+    window._heroCarrosselDisabled = false;
+  }
+  // Tempo de transição
+  const t = parseInt(pers.hero_time || '8', 10);
+  if (t >= 2 && t <= 30) window._heroCarrosselTime = t * 1000;
+  // Reinicia o auto-play com o novo modo/tempo
+  if (typeof window._heroResetAuto === 'function') window._heroResetAuto();
+}
+
+function aplicarPersonalizacaoLive(input) {
+  // Live preview enquanto o usuário digita: aplica direto sem salvar
+  const k = input.getAttribute('data-pers');
+  if (!k) return;
+  // Casos especiais (carrossel)
+  if (k === 'hero_mode' || k === 'hero_time') {
+    const pers = lerPersForm();
+    _aplicarCarrossel(pers);
+    return;
+  }
+  const el = _persGetEl(k);
+  if (el) el.textContent = input.value || PERS_DEFAULTS[k] || '';
+}
+
+function lerPersForm() {
+  const pers = {};
+  document.querySelectorAll('[data-pers]').forEach(input => {
+    pers[input.getAttribute('data-pers')] = input.value;
+  });
+  return pers;
+}
+
+function salvarPersonalizacao() {
+  const cfg = lerConfig() || {};
+  cfg.pers = lerPersForm();
+  // Salva no DB
+  const db = carregarDB() || {};
+  db.config = cfg;
+  localStorage.setItem(DB_KEY, JSON.stringify(db));
+  toast('🎨 Personalização salva!');
+}
+
+function resetarPersonalizacao() {
+  if (!confirm('Restaurar todos os textos para os valores padrão?')) return;
+  const cfg = lerConfig() || {};
+  cfg.pers = {};
+  const db = carregarDB() || {};
+  db.config = cfg;
+  localStorage.setItem(DB_KEY, JSON.stringify(db));
+  aplicarPersonalizacao({});
+  toast('↻ Personalização restaurada.');
+}
+
+// ── CONTATO: aplica os campos de cfg em links reais do site ──────────
+function aplicarContatoNosLinks(cfg) {
+  if (!cfg) return;
+  const wpp = (cfg.wpp || '').replace(/\D/g, '');
+  if (wpp) {
+    document.querySelectorAll('a[href*="wa.me/"]').forEach(a => {
+      const old = a.getAttribute('href');
+      // Substitui o número (qualquer número de 10-15 dígitos após wa.me/)
+      const novo = old.replace(/wa\.me\/\d{10,15}/, 'wa.me/' + wpp);
+      a.setAttribute('href', novo);
+    });
+  }
+  if (cfg.ig) {
+    document.querySelectorAll('a[href*="instagram.com"]').forEach(a => {
+      // Mantém /reel/... ou /p/... mas troca o handle
+      const handle = (cfg.ig.match(/instagram\.com\/([^/?]+)/) || [])[1];
+      if (handle) {
+        const old = a.getAttribute('href');
+        if (!/\/(reel|p)\//.test(old)) {
+          a.setAttribute('href', 'https://www.instagram.com/' + handle + '/');
+        }
+      }
+    });
+  }
+  if (cfg.tt) {
+    document.querySelectorAll('a[href*="tiktok.com"]').forEach(a => a.setAttribute('href', cfg.tt));
+  }
+  if (cfg.yt) {
+    document.querySelectorAll('a[href*="youtube.com"]').forEach(a => a.setAttribute('href', cfg.yt));
+  }
+  if (cfg.email) {
+    document.querySelectorAll('a[href^="mailto:"]').forEach(a => a.setAttribute('href', 'mailto:' + cfg.email));
+  }
 }
 function salvarSenha() {
   const s1 = document.getElementById('cfg-senha')?.value;
@@ -3063,7 +3321,16 @@ window.addEventListener('hashchange', checkHash);
 // ── INIT ──────────────────────────────────────────
 // Carregar dados salvos do localStorage (se existir)
 const _savedDB = carregarDB();
-if (_savedDB) aplicarDB(_savedDB);
+if (_savedDB) {
+  aplicarDB(_savedDB);
+} else {
+  // Sem dados salvos: ainda assim captura defaults e popula form da personalização
+  carregarPersDefaults();
+  document.querySelectorAll('[data-pers]').forEach(input => {
+    const k = input.getAttribute('data-pers');
+    if (PERS_DEFAULTS && PERS_DEFAULTS[k] != null) input.value = PERS_DEFAULTS[k];
+  });
+}
 
 renderFilterBar();
 renderCards();
@@ -3098,12 +3365,18 @@ checkHash();
     }, 1400);
   }
 
-  function autoNext() { setSlide((cur + 1) % total); }
+  function autoNext() {
+    if (window._heroCarrosselDisabled) return;
+    setSlide((cur + 1) % total);
+  }
 
   function resetAuto() {
     clearInterval(timer);
-    timer = setInterval(autoNext, 7000);
+    if (window._heroCarrosselDisabled) return;
+    timer = setInterval(autoNext, window._heroCarrosselTime || 7000);
   }
+  // Expõe pra que aplicarPersonalizacao consiga reiniciar com novo tempo
+  window._heroResetAuto = resetAuto;
 
   dots.forEach(function(d) {
     d.addEventListener('click', function() {
