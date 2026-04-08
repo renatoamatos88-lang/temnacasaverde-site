@@ -28,14 +28,15 @@ construída em paralelo.
 - Páginas auxiliares: `noticias.html`, `podcast.html`, `vagas.html`
 - Imagens otimizadas em **WebP** via `sharp-cli` (quando houver arquivos locais;
   hoje hero e Quem Somos usam Unsplash via hot-link)
-- Deploy: Git push → GitHub → Vercel (a ser configurado)
+- Deploy: Git push → GitHub → Vercel (auto-deploy ativo)
 
 ## Repositório & hospedagem
 - **GitHub:** https://github.com/renatoamatos88-lang/temnacasaverde-site
 - **Branch principal:** `master` (trabalhar direto, sem feature branches
   nem worktrees — ver seção "Fluxo de trabalho" abaixo)
-- **Host:** Vercel (ainda não configurado)
-- **Domínio:** a definir
+- **Host:** Vercel (projeto `site-casa-verde` no scope `renatoamatos88-langs-projects`) — auto-deploy a cada push em `master`
+- **URL produção:** https://site-casa-verde.vercel.app
+- **Domínio custom:** a definir
 
 ## Fluxo de trabalho (IMPORTANTE)
 **Trabalhar direto no `master`, sem worktrees nem feature branches.**
